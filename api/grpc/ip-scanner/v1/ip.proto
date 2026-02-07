@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package ip_scanner.v1;
+
+option go_package = "github.com/mypettech/ip-scanner/pkg/ip-scanner-grpc-api/v1;ipscannerapi";
+
+service IPService {
+  // Get information about IP address.
+  rpc ScanIP(ScanIPRequest) returns (ScanIPResponse);
+}
+
+message ScanIPRequest {
+  string address = 1;
+}
+
+message ScanIPResponse {
+  IP ip = 1;
+}
+
+message IP {
+  string address = 1;
+  Country country = 2;
+  City city = 3;
+  Location location = 4;
+}
+
+message Country {
+  string iso_code = 1;
+  map<string, string> names = 2;
+}
+
+message City {
+  string name = 1;
+}
+
+message Location {
+  double longitude = 1;
+  double latitude = 2;
+}
