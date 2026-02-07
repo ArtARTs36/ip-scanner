@@ -25,9 +25,6 @@ gen/proto: ## Generate gRPC structures
 		--go_out=$(PROTO_OUT_DIR) --go_opt=paths=source_relative \
         --go-grpc_out=$(PROTO_OUT_DIR) --go-grpc_opt=paths=source_relative \
         --descriptor_set_out=$(PROTO_OUT_DIR)/api.pb \
-		--go-client-builder_out=$(PROTO_OUT_DIR) \
-            --go-client-builder_opt=generate-mock-client=true \
-            --go-client-builder_opt=embed-client=true \
         ./${PROTO_API_DIR}/v1/*.proto
 
 gen/go: ## Generate go/mock structures
