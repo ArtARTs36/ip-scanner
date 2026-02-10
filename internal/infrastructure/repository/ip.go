@@ -32,8 +32,8 @@ func (r *IPRepository) Find(_ context.Context, address string) (*domain.IP, erro
 		} `maxminddb:"country"`
 
 		Location struct {
-			Longitude float64 `maxminddb:"latitude"`
-			Latitude  float64 `maxminddb:"longitude"`
+			Longitude float64 `maxminddb:"longitude"`
+			Latitude  float64 `maxminddb:"latitude"`
 		} `maxminddb:"location"`
 
 		City struct {
